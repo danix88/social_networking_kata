@@ -1,6 +1,7 @@
 package com.socialnetworkingkata.demo.service.impl;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -39,16 +40,22 @@ public class CommandExecuterServiceTest {
 
 	@Test
 	public void executeCommandTest() {
-		commandExecuterService.executeCommand("Alice -> I love the weather today");
+		commandExecuterService.executeCommand("Daniel -> I love the weather today");
 		assertEquals("", outContent.toString());
 
-		commandExecuterService.executeCommand("Alice");
+		commandExecuterService.executeCommand("Charlie follows Daniel");
 		assertEquals("", outContent.toString());
 
-		commandExecuterService.executeCommand("Charlie follows Alice");
-		assertEquals("", outContent.toString());
+		outContent.reset();
+		commandExecuterService.executeCommand("Daniel");
+		assertTrue(outContent.toString().contains("I love the weather today"));
 
+		outContent.reset();
+		commandExecuterService.executeCommand("Daniel wall");
+		assertTrue(outContent.toString().contains("I love the weather today"));
+
+		outContent.reset();
 		commandExecuterService.executeCommand("Other command");
-		assertEquals("Unknown command: Other command", outContent.toString().trim());
+		assertTrue(outContent.toString().contains("Unknown command: Other command"));
 	}
 }

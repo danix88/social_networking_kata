@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import com.socialnetworkingkata.demo.service.ICommandExecuterService;
 
@@ -35,8 +34,8 @@ public class SocialNetworkingKataCommandLineRunner implements CommandLineRunner 
 		while (!EXIT_COMMAND.equalsIgnoreCase(command)) {
 			commandExecuterService.executeCommand(command);
 
-			System.out.print(">");
-			command = scanner.nextLine();
+			System.out.print("> ");
+			command = scanner.nextLine().trim();
 		}
 
 		System.out.println("Goodbye!");
