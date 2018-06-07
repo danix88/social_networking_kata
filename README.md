@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/danix88/social_networking_kata.svg?branch=master)](https://travis-ci.org/danix88/social_networking_kata)
+
 Social Networking Kata
 ----------------------
 This is an implementation of the excercise proposed at:
