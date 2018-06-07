@@ -12,11 +12,12 @@ https://github.com/sandromancuso/social_networking_kata/
 Run the maven command _mvn clean package_.
 Please compile with Java 8 version.
 **Run**:
-Run the command _java -jar demo-1.0.0_.
-Please ensure you are using a Java 8 JRE.
+Run the command _java -jar demo-1.0.0_, ensure you are using a Java 8 JRE.
+Please wait for the welcome message to be printed before starting using the application.
 **Usage**:
 Run the application, type a command and press enter.
 Enter 'exit' in order to quit.
+Please note that commands must be written in lower case and usernames cannot contain spaces.
 
 **Allowed commands**:
  * <user name> -> <message>
@@ -26,4 +27,4 @@ Enter 'exit' in order to quit.
  * exit
 
 **Logging**:
-The application will create a log file into the current path.
+The application will create a log file _socialnetworkingkata.log_.

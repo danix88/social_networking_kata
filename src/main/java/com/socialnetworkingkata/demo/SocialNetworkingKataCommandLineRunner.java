@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import com.socialnetworkingkata.demo.service.ICommandExecuterService;
+import com.socialnetworkingkata.demo.util.MessagePrinter;
 
 @Component
 @Profile("!test")
@@ -19,18 +20,12 @@ public class SocialNetworkingKataCommandLineRunner implements CommandLineRunner 
 	private ICommandExecuterService commandExecuterService;
 	private Scanner scanner;
 
-	/*
-	 * ASSUMPTIONS: 
-	 *  - Usernames cannot contain spaces;
-	 *  - Commands must be written in lower cases;
-	 * 
-	 */
-
 	@Override
 	public void run(String... args) throws Exception {
 		scanner = new Scanner(System.in);
 		String command = "";
 
+		MessagePrinter.printWelcomeMessage();
 		while (!EXIT_COMMAND.equalsIgnoreCase(command)) {
 			commandExecuterService.executeCommand(command);
 
